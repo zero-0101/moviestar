@@ -2,9 +2,11 @@ import { useFonts } from 'expo-font';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SplashScreen, Slot } from 'expo-router';
 import { useEffect } from 'react';
-import { TamaguiProvider } from 'tamagui';
+import { TamaguiProvider, Theme } from 'tamagui';
 
 import config from '../tamagui.config';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { queryClient } from '~/queryClient';
 
 export default function Layout() {
   const [loaded] = useFonts({
@@ -23,7 +25,11 @@ export default function Layout() {
   return (
     <TamaguiProvider config={config}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <Slot />
+        <QueryClientProvider client={queryClient}>
+          <Theme name={'blue'}>
+            <Slot />
+          </Theme>
+        </QueryClientProvider>
       </GestureHandlerRootView>
     </TamaguiProvider>
   );
