@@ -1,4 +1,5 @@
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
+
 import { Card, Image, YStack, Text, Paragraph } from 'tamagui';
 import { ResultItem } from '~/interfaces/apiresults';
 
@@ -7,8 +8,10 @@ type MovieCardProps = {
 };
 
 const MovieCard = ({ movie }: MovieCardProps) => {
+  const router = useRouter();
+
   return (
-    <Link href={`/(drawer)/home/movie/${movie.id}`}>
+    <Link href={`/(drawer)/home/${movie.media_type === 'movie' ? 'movie' : 'tv'}/${movie.id}`}>
       <Card
         elevate
         width={150}
@@ -16,7 +19,12 @@ const MovieCard = ({ movie }: MovieCardProps) => {
         scale={0.9}
         hoverStyle={{ scale: 0.925 }}
         pressStyle={{ scale: 0.975 }}
-        animation={'bouncy'}>
+        animation={'bouncy'}
+        onPress={() => {
+          router.push(
+            `/(drawer)/home/${movie.media_type === 'movie' ? 'movie' : 'tv'}/${movie.id}`
+          );
+        }}>
         <Card.Header p={0}>
           <Image
             source={{ uri: `https://image.tmdb.org/t/p/w200${movie.poster_path}` }}

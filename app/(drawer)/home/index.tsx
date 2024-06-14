@@ -57,8 +57,8 @@ export default function Home() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        py={40}
-        contentContainerStyle={{ gap: 14, paddingLeft: 14 }}>
+        py={20}
+        contentContainerStyle={{ gap: 14, paddingLeft: 14, height: 260 }}>
         {searchQuery.data?.results
           ? searchQuery.data?.results.map((item) => (
               <MovieCard key={item.id} movie={item}></MovieCard>

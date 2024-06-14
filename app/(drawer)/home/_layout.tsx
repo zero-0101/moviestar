@@ -16,6 +16,7 @@ export default () => {
         options={{
           title: 'Moviestar',
           headerLeft: () => <DrawerToggleButton tintColor="#fff" />,
+          headerTintColor: '#fff',
         }}
       />
 
@@ -23,6 +24,15 @@ export default () => {
         name="movie/[id]/index"
         options={{
           title: '',
+          headerTintColor: '#fff',
+        }}
+      />
+
+      <Stack.Screen
+        name="tv/[id]/index"
+        options={{
+          title: '',
+          headerTintColor: '#fff',
         }}
       />
     </Stack>

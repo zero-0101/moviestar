@@ -25,9 +25,10 @@ export interface ResultItem {
   title?: string;
   release_date?: string;
   video?: boolean;
+  tagline?: string;
 }
 
 export enum MediaType {
-  Moive = 'moive',
+  Movie = 'movie',
   TV = 'tv',
 }

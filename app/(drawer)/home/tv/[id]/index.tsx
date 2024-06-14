@@ -8,7 +8,7 @@ export default () => {
 
   return (
     <View>
-      <DetailsPage id={id!} mediaType={MediaType.Movie}></DetailsPage>
+      <DetailsPage id={id!} mediaType={MediaType.TV}></DetailsPage>
     </View>
   );
 };
